@@ -1,0 +1,330 @@
+
+*{
+    box-sizing: border-box;
+
+    
+}
+
+body{
+    background-color: aliceblue;
+    font-family: 'Roboto' sans-serif;
+    margin: 0;
+}
+h1{
+    font-size: 3.5em;
+}
+h2{
+    font-size: 2.7em;
+}
+h3{font-size: 2em;}
+p{font-size: 1.25em;}
+ul{list-style: none;}
+li{font-size: 1.25em;}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    display: flex;
+    min-height: 160px;
+    background: linear-gradient(110deg, #C7DDEC 40%,  #BCE6F9 60%);
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+/*diseño juliaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaann */
+* {
+    margin:0px;
+    padding:0px;
+}
+
+#header {
+    margin:auto;
+    width:300vh;
+    
+
+    margin-left: 70vh;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+ul, ol {
+    list-style:none;
+}
+
+.nav > li {
+    float:left;
+}
+
+.nav li a {
+
+    color:black;
+    text-decoration:none;
+    font-size: 2vh;
+    font-weight: bold;
+    padding:5px 12px;
+    display:block;
+    border-radius: 2vh;
+}
+.op{
+    width: 14vh;
+}
+
+.nav li a:hover {
+    background: linear-gradient( 110deg, #62BDF9 60%,  #79B8E1 60%);
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-140px;
+    top:0px;
+}
+/*diseño juliaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaann */
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    height: 150px;
+    border-radius: 12vh;
+    margin-left: 50px;
+}
+nav a{
+    font-weight: 600;
+    padding-right: 10px;
+}
+nav a:hover{
+    color: #A4CBE6;
+}
+@media (max-width:700px){
+    header{
+        flex-direction: column;
+    }
+    nav{
+        padding: 10px 0px;
+    }
+}
+button{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 0, 0, 5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 5);
+    background: linear-gradient(220deg, #A3A3A3 60%, #C6C6C6 60%);
+
+
+}
+button:hover{
+    background: linear-gradient(110deg, #A3A3A3 60%,  #C6C6C6 60%);
+
+}
+.container{
+    background-color: rgba(50, 50, 50,0.2);
+    margin: auto;
+}
+
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 50vh;
+    color: white;
+    background-color: #F9EFD9;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#hero h1{
+    color: black;
+}
+#somos-proya .container{
+    text-align: center;
+    background-color: #F6FEF8;
+    padding: 120px 12px;
+
+}
+.nuestros-programas{
+    background-color: rgb(30,30, 30);
+    color: white;
+    text-align: center;
+}
+.nuestros-programas .container{
+   padding: 150px 10px;
+}
+.nuestros-programas h2{
+    margin-top: 0;
+    font-size: 3.2em;
+
+}
+.nuestros-programas p{
+    display: none;
+}
+.nuestros-programas .carta{
+    padding: 50px;
+    margin: 20px;
+    border-radius: 15px;
+}
+.carta:first-child{
+    background-image:  url("../Img/fondo.jpg");
+    background-blend-mode: soft-light;
+    background-position: center center;
+    background-size: cover;
+}
+.carta:nth-child(2){
+    background-image: url("../Img/fondo.jpg");
+    background-blend-mode: soft-light;
+    background-position: center center;
+    background-size: cover;
+
+}
+.carta:nth-child(3){
+    background-image: url("../Img/fondo.jpg");
+ 
+    background-blend-mode: soft-light;
+    background-position: center center;
+    background-size: cover;
+
+}
+.carta:nth-child(4){
+    background-image: url("../Img/noticiaindex.jpg");
+    background-blend-mode: soft-light;
+    background-position: center center;
+    background-size: cover;
+
+}
+#caracteristicas .container{
+    text-align: center;
+    padding: 100px 12px;
+}
+#caracteristicas li{
+    margin: 15px 0px ;
+    font-weight: bold;
+}
+#final{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    height: 80vh;
+
+}
+#final h2{
+    font-size: 5vw;
+}
+#final button{
+    font-size: 2vw;
+}
+footer{
+    background-color: rgb(230, 230, 230);
+}
+footer p{
+    margin: 0;
+    padding: 12px;
+    color: rgb(100, 100, 100);
+}
+footer .container{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+@media (min-width: 720px){
+    #somos-proya .container{
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+    #somos-proya h2{
+        margin-top: 0;
+    }
+    #somos-proya .img-container{
+        background-image:url("../Img/imagennosotros.webp");
+        background-size: cover;
+        background-position: center center;
+        height: 500px;
+        width: 400px;
+
+    }
+    #hero h1{
+        font-size: 5em;
+    }
+    #somos-proya .texto{
+        width: 50%;
+        text-align: initial;
+        padding-left: 30px;
+        max-width: 600px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .nuestros-programas .programas{
+        display: flex;
+        justify-content: center;
+
+    }
+    .nuestros-programas p{
+        display: block;
+        margin-bottom: 30px;
+    
+    }
+    .nuestros-programas h3{
+        margin-top: 0;
+    }
+    .nuestros-programas h2{
+        font-size: 4em;
+    }
+    .nuestros-programas .carta{
+        padding: 50px;
+        background-size: 100% 150px;
+        background-repeat: no-repeat;
+        background-position-y: 0;
+        background-color: rgba(50, 50, 50,0.5);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0);
+        box-shadow: 2px 2px 10px rgb(80, 80, 80);
+    }
+
+    .carta:first-child{
+        background-image: url("../Img/voto.jpg");
+        background-position: center center;
+        background-size: cover;
+        font-weight: bold;
+    }
+    .carta:nth-child(2){
+        background-image: url("../Img/partidosiondex.webp");
+        background-position: center center;
+        background-size: cover;
+    
+    }
+    .carta:nth-child(3){
+        background-image: url("../Img/foroindex.png");
+        background-position: center center;
+        background-size: cover;
+    
+    }
+    .carta:nth-child(4){
+        background-image: url("../Img/noticiaindex.jpg");
+        background-position: center center;
+        background-size: cover;
+    
+    }
+    
+} 

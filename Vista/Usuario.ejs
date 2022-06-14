@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>Usuario</title>
+</head>
+<body>
+    <script>
+     swal("BIENVENID@!", "<%= Nombre%> <%= Apellido%>!", "success");
+    </script>
+
+    <header>
+        <a href="#" class="logo">
+            <img src="/img/logo.jpg" alt="logo">
+        </a>
+        <div id="header">
+            <ul class="nav">
+                <li><a href="/Usuario" class="">Inicio</a></li>
+                <li><a href="/urnaUsu" class="">Ver urnas</a></li>
+                <li><a href="/foros" class="">Foros de discusion</a></li>
+                <li><a href="/NotiUsu" class="">Noticias</a></li>
+                <li><a href="">Partidos</a>
+                    <ul id="partidos">
+
+                    </ul>
+                </li>
+                <li><a href="/cerrar" class="">Cerrar Sesion</a></li>
+    </header>
+    <script>
+        let =url='/partidos'
+        fetch(url)
+        .then(Response=>Response.json())
+        .then(data=>mostrarDatos(data))
+        .catch(error=>console.log(error))
+        const mostrarDatos=(data)=>{
+        console.log(data)
+        let body=''
+        for(i=0; i<data.length;i++){
+            body+=`
+                
+                <li><a href="/partido/${data[i].IdPartido}">${data[i].NomPartido}</a></li>
+            
+                    `
+                       
+
+        }
+        document.getElementById('partidos').innerHTML=body
+    }
+    </script>
+  
+    
+</body>
+</html>

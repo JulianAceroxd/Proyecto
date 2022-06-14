@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  
+    
+    <title>Usuario</title>
+</head>
+<body>
+    
+    <script>
+  
+    </script>
+   <header>
+    <a href="#" class="logo">
+        <img src="/img/logo.jpg" alt="logo">
+    </a>
+    <div id="header">
+        <ul class="nav">
+            <li><a href="#" class="">Urna</a>
+                <ul>
+                    <li><a href="/crearurna" class="">crear urnas</a></li>
+                    <li><a href="/urnaadmin" class="">ver urnas</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="/foros" class="">Foros de discusion</a>
+                <ul>
+                    <li><a href="#" class="">crear foros </a></li>
+                    <li><a href="#" class="">ver foros</a></li>
+                </ul>
+            </li>
+            <li><a href="/noticias" class="">Noticias</a>
+                <ul>
+                    <li><a href="#" class="">crear noticias</a></li>
+                    <li><a href="/noticias" class="">ver noticias</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="">Integrante</a>
+                <ul>
+                    <li><a href="#" class="">crear integrante</a></li>
+                    <li><a href="#" class="">ver integrante</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="">Partido</a>
+                <ul>
+                    <li><a href="#" class="">crear partido</a></li>
+                    <li><a href="#" class="">ver partido</a></li>
+                </ul>
+            </li>
+            <li><a href="/" class="">Cerrar Sesion</a>
+         
+</header>
+    <hr>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-9 offset-md-2">
+                <h3>AÑADIR URNA</h3>
+                <hr>
+                <form action="/agru" method="post" enctype="multipart/form-data" id="form">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="nombre" class="form-label">Nombre De La Urna</label>
+                            <input type="text" class="form-control" id="nombre" name="Nombre">
+                        </div>
+                    </div>
+     
+
+                    <span class="d-block pb-3">Añada Descripcion De La Urna</span>
+                    <div class="signature mb-2" style="width: 100%; height: 100px;">
+                        <textarea  id="signature-canvas" name="Descripcion"
+                            style="border: 1px dashed rgb(0, 110, 255); width: 100%; height: 10  0px;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mb-6">Añadir Participante</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

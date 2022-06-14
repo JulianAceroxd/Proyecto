@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    text-align: center;
+    height: 300px;
+    padding: 12px;
+    background-image: url("../img/fondoperfil.webp");
+}
+.avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.user_name{
+    font-size: 28px;
+    margin-top: 14px;
+}
+.socials{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+.socials li{
+    display: inline-block;
+    margin: 6px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.about{
+    padding: 10px;
+
+}
+
+.about h3{
+    color: black;
+    font-size: 30px;
+}
+.about p{
+    color: black;
+    font-size: 20px;
+}

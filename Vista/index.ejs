@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title></title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="/img/logo.jpg" alt="logo">
+        </a>
+        <div id="header">
+            <ul class="nav">
+                <li><a href="/" class="">Inicio</a></li>
+                <li><a href="/urnaespec" class="">Urna</a></li>
+                <li>  <a href="/foros" class="">Foros de discusion</a></li>
+                <li>  <a href="/NotiEspec" class="">Noticias</a></li>
+                <li><a href="">Partidos</a>
+                    <ul id="partidos">
+
+                    </ul>
+                </li>
+                <li> <a href="/login" class="">Login</a></li>
+                <li>  <a href="/Registro" class="">Registrate</a></li>
+            <nav>
+              
+                <!--<a href="/crearparti" class="">crearpartido</a>
+                <a href="/crearforo" class="">crearforo</a>
+                <a href="/crearurna" class="">crearurna</a>
+                <a href="/admin" class="">Administrador</a>-->
+                
+            </nav>
+    </header>
+
+        <script>
+            let =url='/partidos'
+            fetch(url)
+            .then(Response=>Response.json())
+            .then(data=>mostrarDatos(data))
+            .catch(error=>console.log(error))
+            const mostrarDatos=(data)=>{
+            console.log(data)
+            let body=''
+            for(i=0; i<data.length;i++){
+                body+=`
+                    
+                            <li><a href="/partidoespec/${data[i].IdPartido}">${data[i].NomPartido}</a></li>
+                        
+                                `
+                        
+
+            }
+            document.getElementById('partidos').innerHTML=body
+            console.log(body)
+        }
+        </script>
+    
+    <section id="somos-proya">
+        <div class="container">
+        <div class="img-container"></div>
+        <div class="texto">
+        <h2>Somos <span class="color-acento"> Politica Activa</span></h2>
+        <p>Somos una página web dirigida hacia la información y participación política donde buscamos que nuestros usuarios se informen de manera correcta e interactiva, donde la información se dispone de una manera sencilla y rápida de entender, nuestros principales objetivos es ser una página independiente, acertada en información, como pilares fundamentales el respeto y la unidad, queremos dar a nuestros usuarios la mejor experiencia por medios tales como noticias, foros de discusión, urnas y partidos.
+        </p>
+    </div>
+    </div>
+    </section>
+    <section class="nuestros-programas">
+       
+        <div class="container">
+            
+            <h2>Nuestro portafolio</h2>
+            <div class="programas">
+        <div class="carta">
+            <h3>Urna</h3>
+            
+            <form action="/urnaespec">
+                <button><a href="/urnaespec">+info</a></button>
+            </form>
+ 
+        </div>
+        <div class="carta">
+            <h3>Partidos</h3>
+           
+            <form action="#">
+                <button><a href="/partidos">+info</a></button>
+            </form>
+          
+        </div>
+        <div class="carta">
+            <h3>Foros</h3>
+            <form action="#">
+                <button><a href="/foros">+info</a></button>
+            </form>
+        </div>
+        <div class="carta">
+            <h3>Noticias</h3>
+            <form action="NotiEspec">
+                <button><a href="/NotiEspec">+info</a></button>
+            </form>
+        </div>
+    </div>
+    </div>
+    </section>
+
+    <section id="caracteristicas">
+        <div class="container">
+        <ul>
+            <li>"¡Pueblo indolente! ¡Cuán distinta sería hoy vuestra suerte si conocierais el precio de la libertad! Pero no es tarde. Ved que, mujer y joven, me sobra valor para sufrir la muerte y mil muertes más. ¡No olvidéis este ejemplo!", gritó Policarpa.</li>
+            <li>"El arte de vencer se aprende en las derrotas"
+                Simón Bolívar</li>
+            <li>"Mi filosofía me hace vivir contento con la seguridad de que el testimonio público y el de mi conciencia, persuaden que he procurado llenar mis deberes"
+                Francisco de Paula Santander</li>
+            <li>“Si ustedes los jóvenes no asumen la dirección de su propio país, nadie va a venir a salvarlo. ¡Nadie!”. Jaime Garzon</li>
+        </ul>
+    </div>
+    </section>
+
+    <section id="final">
+        <h2>Preparate</h2>
+        <form action="#">
+            <button>Registrate</button>
+        </form>
+   
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Politica Activa 2022</p>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>

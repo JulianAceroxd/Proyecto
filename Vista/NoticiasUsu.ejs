@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticia</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="Css/noti.css">
+   
+    
+
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="/img/logo.jpg" alt="logo">
+        </a>
+        <div id="header">
+            <ul class="nav">
+                <li><a href="/Usuario" class="">Inicio</a></li>
+                <li><a href="/urnaUsu" class="">Ver urnas</a></li>
+                <li><a href="/foros" class="">Foros de discusion</a></li>
+                <li><a href="/NotiUsu" class="">Noticias</a></li>
+                <li><a href="">Partidos</a>
+                    <ul id="partidos">
+
+                    </ul>
+                </li>
+                <li><a href="/cerrar" class="">Cerrar Sesion</a></li>
+    </header>
+    <script>
+        let =url='/partidos'
+        fetch(url)
+        .then(Response=>Response.json())
+        .then(data=>mostrarDatos(data))
+        .catch(error=>console.log(error))
+        const mostrarDatos=(data)=>{
+        console.log(data)
+        let body=''
+        for(i=0; i<data.length;i++){
+            body+=`
+                
+                <li><a href="/partido/${data[i].IdPartido}">${data[i].NomPartido}</a></li>
+            
+                    `
+                       
+
+        }
+        document.getElementById('partidos').innerHTML=body
+    }
+    </script>
+
+
+<!--==========================
+=            html            =
+===========================-->
+<% Datos.forEach(function (Datos){ %>
+<section class="contenedor-comentarios">
+   
+    <div class="publicacion-realizada">
+        <div class="usuario-publico">
+            <div class="avatar">
+                <img src="Img/logo.jpg" alt="img">
+            </div>
+            <div class="contenido-publicacion">
+                <h4>Administrador</h4>
+                <ul>
+                    <li>Hace 3 min</li>
+                </ul>
+            </div>
+            <div class="menu-comentario">
+                <i class="fas fa-pen"></i>
+                <ul class="menu">
+                    <li><a href="">Editar</a></li>
+                    <li><a href="">Eliminar</a></li>
+                </ul>
+            </div>
+           
+        </div>
+        <p><%=Datos.NomNoti%>:</p>
+        <p><%=Datos.DesNoti%></p>
+        <div class="archivo-publicado">
+            <img src="imagenes/<%=Datos.ImgNoti%>" alt="img">
+        </div>
+        <div class="botones-comentario">
+            <button type="" class="boton-puntuar">
+                <i class="fas fa-thumbs-up"></i>
+                45
+            </button>
+            <button type=""  class="comentario-principal-usuario" value="<%=Datos.IdNoti%>">
+                
+                Ver Comentarios
+            </button>
+        </div>
+    </div>
+    <div class="comentarios-usuarios" id="comentarios<%=Datos.IdNoti%>">
+     
+    </div>
+
+    <div class="comentarios-usuarios">
+        <!-- comentario principal -->
+       
+            <div class="area-comentar">
+            <div class="avatar">
+                <img src="Img/logo.jpg" alt="img">
+            </div>
+            <form action="#" method="post" class="inputs-comentarios">
+                <textarea name="" class="area-comentario"></textarea>
+                <button class="boton-enviar" type="sutmit">
+                    <i class="fas fa-paper-plane"></i>
+                   
+                </button>
+            </form>
+                <form action="#" method="post" class="inputs-comentarios">
+                <div class="botones-comentar">
+                    <div class="boton-subir-archivo">
+                        <label class="boton-file" for="adjuntar">
+                            <i class="far fa-image"></i>
+                           
+                        </label>
+                        <input type="file" name="" value="" placeholder="" id="adjuntar">
+                    </div>
+                    <button class="boton-enviar" type="sutmit">
+                        <i class="fas fa-paper-plane"></i>
+                        
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</section>
+    
+<%})%>
+<!--====  End of html  ====-->
+
+
+<!--=============================
+redes sociales fijadas en pantalla
+No es necesario que copies esto!
+==============================-->
+<style>
+.mensaje a {
+    color: inherit;
+    margin-right: .5rem;
+    display: inline-block;
+}
+.mensaje a:hover {
+    color: #309B76;
+    transform: scale(1.4)
+}
+</style>
+<div class="mis-redes" style="display: block;position: fixed;bottom: 1rem;left: 1rem; opacity: 0.5; z-index: 1000;">
+    <p style="font-size: .75rem;"> Politica Activa</p>
+    <div>
+        <a target="_blank" href="https://www.facebook.com/ApockPolitica Activa"><i class="fab fa-facebook-square"></i></a>
+        <a target="_blank" href="https://twitter.com/ApockPolitica Activa"><i class="fab fa-twitter"></i></a>
+        <a target="_blank" href="https://www.instagram.com/ApockPolitica Activa"><i class="fab fa-instagram"></i></a>
+        <a target="_blank" href="https://www.youtube.com/channel/UC15DkMZQ80aoW_Rqk4n2T_w"><i class="fab fa-youtube"></i></a>
+    </div>
+</div>
+
+<!--====  End of tarjeta  ====-->
+</body>
+<script src="js/Anexos.js"></script>
+</html>

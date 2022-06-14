@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/partido2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <title>Css</title>
+  
+
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="/img/logo.jpg" alt="logo">
+        </a>
+        <div id="header">
+            <ul class="nav">
+                <li><a href="/Usuario" class="">Inicio</a></li>
+                <li><a href="/urnaUsu" class="">Ver urnas</a></li>
+                <li><a href="/foros" class="">Foros de discusion</a></li>
+                <li><a href="/NotiUsu" class="">Noticias</a></li>
+                <li><a href="">Partidos</a>
+                    <ul id="partidos">
+
+                    </ul>
+                </li>
+                <li><a href="/cerrar" class="">Cerrar Sesion</a></li>
+    </header>
+    <script>
+        let =url='/partidos'
+        fetch(url)
+        .then(Response=>Response.json())
+        .then(data=>mostrarDatos(data))
+        .catch(error=>console.log(error))
+        const mostrarDatos=(data)=>{
+        console.log(data)
+        let body=''
+        for(i=0; i<data.length;i++){
+            body+=`
+                
+                        <li><a href="/partidoUsu/${data[i].IdPartido}">${data[i].NomPartido}</a></li>
+                    
+                            `
+                       
+
+        }
+        document.getElementById('partidos').innerHTML=body
+         console.log(body)
+    }
+    </script>
+    
+    <% Datos.forEach(function (Datos){ %>
+    <div class="contenedor">
+        <div class="logo">
+<h1 class="nomp"><%=Datos.NomPartido%></h1>
+        </div>
+<main class="content">
+    <h1 class="nomp"><%=Datos.NomPartido%></h1>
+    <article class="article">
+
+        <p class="nomp"><%=Datos.DesPartido%></p>
+        <div class="imgpa">
+            <img class="imgpa" src="https://pbs.twimg.com/profile_images/1407716604264304640/7A0d59N4_400x400.jpg
+            " alt=""  >
+        </div>
+            </article>
+        
+        
+        </main>
+     
+            <aside class="sidebar">
+                <h1>Integrantes <%=Datos.NomPartido%></h1>
+                <%})%>
+                <% Datos2.forEach(function (Datos2){ %>
+                <div>
+                    <img src="https://diariohoynet.nyc3.cdn.digitaloceanspaces.com/adjuntos/galerias/000/482/0000482653.jpg"  alt="modal_btn2" id="image" height="180px" width="190px" onclick="openImg2('<%=Datos2.IdIntegrante%>')">
+                    <p class="nompos"><%=Datos2.NomInt%><%=Datos2.ApeInt%></p>
+                </div>
+                <div id="modal_container">
+
+                </div>
+                <script>
+                    const modal_container2=document.getElementById("modal_container");
+                    function openImg2(e2){
+                        const d3={
+                    id: e2
+                };
+                        let url='/candi'
+                         fetch(url,{
+                    method:'POST',
+                    headers:{
+                
+                        "content-Type":"application/json",
+                    },
+                    body: JSON.stringify(d3),
+                   })
+                         .then(response=>response.json())
+                         .then(data=>mostrar(data))
+                         .catch(error=>console.log(error))
+                
+                         const mostrar=(data)=>{
+                            console.log (data.length)
+                          
+                             
+                
+                                   
+                
+                        
+                
+                        modal_container2.innerHTML='<div class="modal" id="modal"><div class="modal-content">'+data[0].DesInt+' <button class="modal-btn-closed" id="modal-btn-closed">x</button></div></div> '
+                
+                document.getElementById("modal").addEventListener("click",(e)=>{
+                    console.log(e.target.id)
+                    if(e.target.id==="modal" || e.target.id==="modal-btn-closed" ){
+                        modal_container2.innerHTML=""
+                    }
+                     modal_container2.innerHTML=""
+                })
+                }
+                }
+                </script>
+                <%})%>
+            </aside>
+            <% Datos3.forEach(function (Datos3){ %> 
+<div class="related-post">
+
+  <img src="/imagenes/<%=Datos3.ImgInt%>" alt="modal_btn2" id="image" height="180px" width="190px" onclick="openImg('<%=Datos3.IdIntegrante%>')">
+
+  <p><%=Datos3.NomInt%></p>
+  <div id="modal_container">
+
+</div>
+<script>
+    const modal_container=document.getElementById("modal_container");
+    function openImg(e){
+        const d2={
+    id: e
+};
+        let url='/candi'
+         fetch(url,{
+    method:'POST',
+    headers:{
+
+        "content-Type":"application/json",
+    },
+    body: JSON.stringify(d2),
+   })
+         .then(response=>response.json())
+         .then(data=>mostrar(data))
+         .catch(error=>console.log(error))
+
+         const mostrar=(data)=>{
+            console.log (data.length)
+          
+                alert(data[0].DesInt)
+             
+
+                   
+
+        
+
+        modal_container.innerHTML='<div class="modal" id="modal"><div class="modal-content">'+data[0].DesInt+' <button class="modal-btn-closed" id="modal-btn-closed">x</button></div></div> '
+
+document.getElementById("modal").addEventListener("click",(e)=>{
+    console.log(e.target.id)
+    if(e.target.id==="modal" || e.target.id==="modal-btn-closed" ){
+        modal_container.innerHTML=""
+    }
+     modal_container.innerHTML=""
+})
+}
+}
+</script>
+ 
+
+</div>
+<%})%>
+ 
+
+
+
+<footer class="footer">
+<h4>FOOTER</h4>
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem, voluptates.
+</footer>
+    </div>
+    
+ 
+
+
+</body>
+</html>

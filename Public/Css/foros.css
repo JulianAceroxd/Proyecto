@@ -1,0 +1,167 @@
+*{
+    box-sizing: border-box;
+
+    
+}
+
+body{
+    background-color: aliceblue;
+    font-family: 'Roboto' sans-serif;
+    margin: 0;
+}
+h1{
+    font-size: 3.5em;
+}
+h2{
+    font-size: 2.7em;
+}
+h3{font-size: 2em;}
+p{font-size: 1.25em;}
+ul{list-style: none;}
+li{font-size: 1.25em;}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    display: flex;
+    min-height: 130px;
+    background: linear-gradient(110deg, #C7DDEC 40%,  #BCE6F9 60%);
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+/*diseño juliaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaann */
+* {
+    margin:0px;
+    padding:0px;
+}
+
+#header {
+    margin:auto;
+    width:300vh;
+    
+
+    margin-left: 70vh;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+ul, ol {
+    list-style:none;
+}
+
+.nav > li {
+    float:left;
+}
+
+.nav li a {
+
+    color:black;
+    text-decoration:none;
+    font-size: 2vh;
+    font-weight: bold;
+    padding:5px 12px;
+    display:block;
+    border-radius: 2vh;
+}
+.op{
+    width: 14vh;
+}
+
+.nav li a:hover {
+    background: linear-gradient( 110deg, #62BDF9 60%,  #79B8E1 60%);
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-140px;
+    top:0px;
+}
+/*diseño juliaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaann */
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    height: 150px;
+    border-radius: 12vh;
+    margin-left: 50px;
+}
+nav a{
+    font-weight: 600;
+    padding-right: 10px;
+}
+nav a:hover{
+    color: #A4CBE6;
+}
+@media (max-width:700px){
+    header{
+        flex-direction: column;
+    }
+    nav{
+        padding: 10px 0px;
+    }
+}
+button{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 0, 0, 5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 5);
+    background: linear-gradient(220deg, #A3A3A3 60%, #C6C6C6 60%);
+
+
+}
+button:hover{
+    background: linear-gradient(110deg, #A3A3A3 60%,  #C6C6C6 60%);
+
+}
+.container{
+    background-color: rgba(50, 50, 50,0.2);
+    margin: auto;
+}
+.contenedor{
+    position: relative;
+    background-color: aquamarine;
+    margin-left: 60vh;
+    width: 90vh;
+    height: 60vh;
+    margin-top: 12vh;
+    border-radius: 3vh;
+}
+.opp{
+    position: relative;
+    background-color: blueviolet;
+    width: 70vh;
+    padding: 2vh;
+    margin: 2vh;
+    border-radius: 3vh;
+    margin-left: 11vh;
+    text-align: center;
+    font-size: 3vh;
+
+}
+.titu{
+    background-color: chocolate;
+    margin-left: 25vh;
+  
+    font-size: 5vh;
+}
+.fonf{
+    margin-top: 12vh;
+}

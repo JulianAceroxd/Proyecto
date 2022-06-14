@@ -1,0 +1,157 @@
+
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="/css/urnas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/estadisticaurna.js"></script>
+  
+    
+    <title>Usuario</title>
+</head>
+<body>
+    
+    <script>
+  
+    </script>
+    <header>
+        <a href="#" class="logo">
+            <img src="/img/logo.jpg" alt="logo">
+        </a>
+		<div id="header">
+			<ul class="nav">
+                <li> <a href="/contact" class="">Nosotros</a></li>
+                <li>  <a href="/urna" class="">Urna</a></li>
+                <li>  <a href="/partidos" class="">Partidos</a>
+                    <ul>
+                        <li class="op"><a href="/partidos" class="">info par</a></li>
+                        <li class="op" ><a href="/partidos" class="">Submenu2</a></li>
+                </ul>
+                </li>
+                <li>  <a href="/foros" class="">Foros de discusion</a></li>
+                <li>  <a href="/noticias" class="">Noticias</a></li>
+                <li> <a href="/login" class="">Login</a></li>
+                <li>  <a href="/Registro" class="">Registrate</a></li>
+                <li>  <a href="/AgreInt" class="">Agregar Integrantes</a></li>
+                <li id="partidos"><a href=""></a>
+            <nav>
+              
+                <!--<a href="/crearparti" class="">crearpartido</a>
+                <a href="/crearforo" class="">crearforo</a>
+                <a href="/crearurna" class="">crearurna</a>
+                <a href="/admin" class="">Administrador</a>-->
+                
+            </nav>
+    </header>
+    <div class="contitu">
+<H1 class="titu"><a>Modulo Urnas</a></H1>
+</div>
+
+    
+    
+    <% Datos.forEach(function (Datos){ %>
+        <div class="contnomde">
+        <h1 class="bot"><%=Datos.NomUrna%></h1>
+        <p class="bot"><%=Datos.DesUrna%></p>
+        <input class="botons" type="button" value="Ver Urna" class="Confirmar">
+    </div>
+
+        <input type="hidden" class="id" value="<%=Datos.IdUrna%>" id="valor">
+        
+   
+    <div  class="botones2" id="botones<%=Datos.IdUrna%>">
+         
+    </div>
+    <canvas class="estadisticafondo" id="myChart<%=Datos.IdUrna%>" ></canvas>
+ 
+     
+     <%})%>
+    <script>
+        
+         $(document).ready(function(){
+ 
+ $('.botons').on('click',function(){
+
+let btn=$('.botons').index(this);
+let doc=$('.id').eq(btn);
+
+let d=doc.val();
+
+const d2={
+    id: d
+};
+
+        let ctx=document.getElementById('myChart'+d)
+         var myChart=new Chart(ctx,{
+             type:'bar',
+             data:{
+                 datasets:[{
+                     
+                     label:'Estadisticas Urna', 
+                     backgroundColor:['yellow'],
+                     borderColor:['black'],
+                     borderwidth:1
+                     
+              } ]
+             },
+             options:{
+                 scales:{
+                     y:{
+                         width: 10,
+                        beginAtZeto:true,
+                        maintainAspectRatio: false
+                     }
+                 }
+             }
+
+         })
+        
+         let url='/urnadatos'
+         fetch(url,{
+    method:'POST',
+    headers:{
+        
+
+        "content-Type":"application/json",
+    },
+    body: JSON.stringify(d2),
+   })
+         .then(response=>response.json())
+         .then(data=>mostrar(data))
+         .catch(error=>console.log(error))
+
+         const mostrar=(data)=>{
+            console.log (data.length)
+             data.forEach(element => {
+                 myChart.data['labels'].push(element.Opcion)
+                 myChart.data['datasets'][0].data.push(element.cantidad)
+                 myChart.update();
+            
+             });
+             for(i=0; i<data.length;i++){
+                 var label='<label>Vote Por Su Opcion Favorita</label>'
+                 var button = ' <form action="Votos" method="post"><div class="loo"><input  type="submit"value="'+data[i].Opcion+'"  id="num_parrafos" name="opcion"/><input type="hidden"value="'+data[i].IdUrna+'"  id="num_parrafos" name="id"/></div></form>'
+    $('#botones'+d).append(button);
+
+                   
+
+        }
+      
+             
+         }
+        });
+});
+        
+    </script>
+ 
+</body>
+</html>
