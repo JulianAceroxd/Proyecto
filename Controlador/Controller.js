@@ -154,25 +154,49 @@ Controller.NotiUsu=(req,res,next)=>{    //creamos una consulta de usuarios por m
             } 
 
 
-                Controller.likes=async(req,res,next)=>{
+ Controller.likes=async(req,res,next)=>{
                     let n=parseInt(req.body.likes);
                      n=n+1;
                     const a=req.body.id;
                   console.log(n+a)
-                
+                  cnn.query('SELECT * FROM tbnoticias',(err,resbd)=>{  
                     cnn.query('UPDATE tbcomennoticias SET  likes="'+n+'" WHERE IdComentarioNoti="'+a+'"',async(err,respbb)=>{
                         if(err){
                             next(new Error(err));
                 
                         }
                         else{
-                            res.redirect('NoticiasUsu')
+                            res.render('NoticiasUsu',{Datos:resbd});
                             console.log("Actualizado")
                             
                         }
                 
                     })
+                })
                 }
+
+ Controller.Comentario=(req,res,next)=>{  
+    const IdUsu=req.body.id;
+    const IdNoti=req.body.idnoti
+    const Comentario=req.body.comentario
+    const likes=0;
+
+    console.log(IdUsu,IdNoti,Comentario,likes)
+      //creamos una consulta de usuarios por medio de la funcion flecha
+    cnn.query('INSERT INTO tbcomennoticias SET?',{IdNoti:IdNoti,IdUsu:IdUsu,ComentarioNoti:Comentario,likes:likes},(err,resbd)=>{ 
+              cnn.query('SELECT * FROM tbnoticias',(err,resbd)=>{  //cnn que contiene la conexion a base de datos nos genera la consulta con un err que seria error o un resbd que seria una respuesta 
+                            if(err){ //VALIDAMOS EL VALOR RECIBIDO SEA ERROR O NO
+                                next(new Error(err));
+                                console.log("ERROR EN LA CONSULTA");
+                            }   
+                            else{
+                                console.log(resbd) // EN CASO QUE RETORNE RESPUESTA LA VARIABLE DATOS, CONTENDRA LO QUE NOS TRAE DE DESPUESTA
+                                res.render('NoticiasUsu',{Datos:resbd});  //NOS RENDERISA A LA VISTA DONDE LLEVAREMOS LOS DATOS
+                            }
+                        })
+                    })
+                    
+                    }
 
 
 
@@ -291,6 +315,7 @@ Controller.Registro=(req,res,next)=>{
                Nombre=results[0].NomUsu;
                Apellido=results[0].ApeUsu;
                IdUsu=results[0].IdUsu;
+               Img=results[0].Img;
     
                Rol=results[0].Rol;  //CREAMOS SESIONES POR MEDIO DE UN ARREGLO, QUE NOS RETORNA LOS DATOS DE EL USUARIO LOGEADO
                req.session.Login=true;
@@ -311,6 +336,9 @@ Controller.Registro=(req,res,next)=>{
                     res.redirect("Usuario")
                }
                IdUsu=results[0].IdUsu;
+               Img=results[0].Img;
+               Nombre=results[0].NomUsu;
+               Apellido=results[0].ApeUsu;
                 }
             
                 
@@ -422,7 +450,7 @@ console.log("entra al controlador"+id);
 
 
 
-Controller.partidos=(req,res)=>{    //creamos una consulta de usuarios por medio de la funcion flecha
+Controller.partidos=(req,res,next)=>{    //creamos una consulta de usuarios por medio de la funcion flecha
        //POR MEDIO DEL CONST ALMACENAMOS EN LETRAS LOS VALORES DE LA PAGINA A INSERTAR,GRACIAS ESTO A LA RUTAS
    
 

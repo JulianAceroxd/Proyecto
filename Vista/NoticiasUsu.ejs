@@ -106,11 +106,15 @@
        
             <div class="area-comentar">
             <div class="avatar">
-                <img src="Img/logo.jpg" alt="img">
+                <img src="Imagenes/<%=Img%>" alt="img">
+              
             </div>
-            <form action="#" method="post" class="inputs-comentarios">
-                <textarea name="" class="area-comentario"></textarea>
-                <button class="boton-enviar" type="sutmit">
+         <p><%=Nombre%> <%=Apellido%></p>
+            <form action="/AgrComentarios" method="post" class="inputs-comentarios">
+                <input type="hidden" value="<%=Datos.IdNoti%>" name="idnoti">
+                <input type="hidden" value="<%=IdUsu%>" name="id">
+                <textarea name="comentario" class="area-comentario" requireds ></textarea>
+                <button class="boton-enviar" type="submit">
                     <i class="fas fa-paper-plane"></i>
                    
                 </button>

@@ -16,6 +16,7 @@ Rutas.get('/NotiUsu',Controller.NotiUsu);
 Rutas.get('/partidoUsu',Controller.PartidoUsu);
 Rutas.post('/comentarios',Controller.comentarios);
 Rutas.post('/likes',Controller.likes);
+Rutas.post('/AgrComentarios',Controller.Comentario);
 
 
 

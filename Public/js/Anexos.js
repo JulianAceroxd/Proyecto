@@ -51,8 +51,8 @@ alert("Aun No Existen Comentarios Se El Primero En Comentar!");
                                 </div>
                                 <div class="botones-comentario">
 
-                                    <form id="formularios">
-                                        <input type="hidden" placeholder="Usuario" name="id" value="${data[i].IdComentarioNoti}">
+                                    <form action="likes" method="post"id="formularios">
+                                        <input type="hidden" placeholder="Usuario" name="id" value="${data[i].IdComentarioNoti}"required>
                                         <i class="fas fa-thumbs-up"></i>
                                         <input type="submit" class="boton-puntuar" name="likes" value="${data[i].likes}">
                                     </form>
