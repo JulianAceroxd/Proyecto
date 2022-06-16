@@ -7,6 +7,19 @@ const morgan=require('morgan');
 const session= require('express-session');
 const multer=require('multer');
 const mimeTypes=require('mime-types');
+app.use(session({
+    secret:'123',
+    resave:true,
+    saveUninitialized:true
+}));
+app.use(express.json())
+app.use(morgan('dev'));
+
+
+
+app.use(express.static(path.join(__dirname,'Public')));
+app.set('view engine', 'ejs');
+app.set('views',path.join(__dirname,'Vista'));
  const storage= multer.diskStorage({
      destination:path.join(__dirname, 'Public/imagenes'),
 filename: (req, file , cb)=>{
@@ -15,19 +28,6 @@ cb(null,Date.now()+"." + mimeTypes.extension(file.mimetype))
 }
 
 });
-app.use(express.json())
-app.use(morgan('dev'));
-
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
-app.use(express.static(path.join(__dirname,'Public')));
-app.set('view engie','ejs');
-app.set('views',path.join(__dirname,'Vista'));
-app.use(session({
-    secret:'123',
-    resave:true,
-    saveUninitialized:true
-}));
 app.use(multer({
    storage,
     dest: path.join(__dirname,'Public/imagenes')
